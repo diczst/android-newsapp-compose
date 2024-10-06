@@ -1,6 +1,6 @@
 # Clean Architecture
 Arsitektur "Clean Code" atau yang sering disebut juga sebagai "Clean Architecture" adalah sebuah pendekatan dalam pengembangan perangkat lunak yang fokus pada pembuatan kode yang bersih dan mudah dipelihara. Pendekatan ini diperkenalkan oleh Robert C. Martin (dikenal sebagai Uncle Bob) dan memiliki beberapa prinsip utama yang ditujukan untuk meningkatkan pemisahan kepentingan dan membuat sistem lebih modular, fleksibel, dan adaptif.
-![Clean Architecture](https://raw.githubusercontent.com/AliAsadi/Android-Clean-Architecture/master/screenshot/architecture0.png)
+![Clean Architecture](https://raw.githubusercontent.com/AliAsadi/Android-Clean-Architecture/master/screenshot/architecture0.png)    
 
 Arsitektur ini biasanya digambarkan sebagai serangkaian lingkaran yang berurutan, yang dikenal sebagai "The Clean Architecture Circle", di mana setiap lingkaran mewakili tingkat keabstrakan yang berbeda. Lingkaran ini termasuk, dari luar ke dalam:
 
