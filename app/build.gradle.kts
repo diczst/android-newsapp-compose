@@ -69,4 +69,7 @@ dependencies {
 
     // splash screen
     implementation (libs.androidx.core.splashscreen)
+
+    //Datastore | SharedPref versi jetpack
+    implementation (libs.androidx.datastore.preferences)
 }
