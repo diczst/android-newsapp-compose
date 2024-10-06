@@ -1,4 +1,4 @@
-package com.neonusa.newsapp.presentation
+package com.neonusa.newsapp.presentation.onboarding
 
 import androidx.annotation.DrawableRes
 import com.neonusa.newsapp.R

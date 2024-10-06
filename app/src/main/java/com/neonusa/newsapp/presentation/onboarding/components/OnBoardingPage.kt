@@ -1,4 +1,4 @@
-package com.neonusa.newsapp.presentation.components
+package com.neonusa.newsapp.presentation.onboarding.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.Image
@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.neonusa.newsapp.R
 import com.neonusa.newsapp.presentation.Dimens.MediumPadding1
 import com.neonusa.newsapp.presentation.Dimens.MediumPadding2
-import com.neonusa.newsapp.presentation.Page
+import com.neonusa.newsapp.presentation.onboarding.Page
 import com.neonusa.newsapp.ui.theme.NewsAppTheme
 
 @Composable
