@@ -11,8 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import com.neonusa.newsapp.presentation.Dimens.IndicatorSize
 import com.neonusa.newsapp.ui.theme.BlueGray
+import com.neonusa.newsapp.ui.theme.NewsAppTheme
 
 @Composable
 fun PagerIndicator(
@@ -31,5 +33,13 @@ fun PagerIndicator(
                     .background(color = if (page == selectedPage) selectedColor else unselectedColor)
             )
         }
+    }
+}
+
+@Preview
+@Composable
+fun PagerIndicatorPreview(){
+    NewsAppTheme {
+        PagerIndicator(pagesSize = 3, selectedPage = 1)
     }
 }
