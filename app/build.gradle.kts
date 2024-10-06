@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
+    id ("com.google.dagger.hilt.android")
 }
 
 android {
@@ -74,7 +75,7 @@ dependencies {
     // Datastore | SharedPref versi jetpack
     implementation (libs.androidx.datastore.preferences)
 
-    //Dagger Hilt
+    //Dagger Hilt (DI)
     implementation ("com.google.dagger:hilt-android:2.45")
     kapt ("com.google.dagger:hilt-compiler:2.45")
 }
