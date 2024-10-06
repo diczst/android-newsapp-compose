@@ -76,6 +76,6 @@ dependencies {
     implementation (libs.androidx.datastore.preferences)
 
     //Dagger Hilt (DI)
-    implementation ("com.google.dagger:hilt-android:2.45")
-    kapt ("com.google.dagger:hilt-compiler:2.45")
+    implementation ("com.google.dagger:hilt-android:2.48")
+    kapt ("com.google.dagger:hilt-compiler:2.48")
 }
