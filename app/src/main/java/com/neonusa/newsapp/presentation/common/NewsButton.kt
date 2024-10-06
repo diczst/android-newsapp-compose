@@ -9,7 +9,9 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.neonusa.newsapp.ui.theme.NewsAppTheme
 import com.neonusa.newsapp.ui.theme.WhiteGray
 
 @Composable
@@ -44,5 +46,14 @@ fun NewsTextButton(
             style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold),
             color = WhiteGray
         )
+    }
+}
+
+@Preview
+@Composable
+fun NewsButtonPreview(){
+    NewsAppTheme {
+        NewsButton(text = "Lanjutkan") {
+        }
     }
 }
