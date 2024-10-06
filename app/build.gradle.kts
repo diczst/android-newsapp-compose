@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
 }
 
 android {
@@ -67,9 +68,13 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    // splash screen
+    // Splash screen
     implementation (libs.androidx.core.splashscreen)
 
-    //Datastore | SharedPref versi jetpack
+    // Datastore | SharedPref versi jetpack
     implementation (libs.androidx.datastore.preferences)
+
+    //Dagger Hilt
+    implementation ("com.google.dagger:hilt-android:2.45")
+    kapt ("com.google.dagger:hilt-compiler:2.45")
 }
