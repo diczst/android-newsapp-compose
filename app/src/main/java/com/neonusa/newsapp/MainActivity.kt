@@ -16,9 +16,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.lifecycleScope
 import com.neonusa.newsapp.domain.usecases.app_entry.AppEntryUseCases
 import com.neonusa.newsapp.presentation.onboarding.OnBoardingScreen
+import com.neonusa.newsapp.presentation.onboarding.OnBoardingViewModel
 import com.neonusa.newsapp.ui.theme.NewsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -26,6 +28,7 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
     @Inject
     lateinit var appEntryUseCases: AppEntryUseCases
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +44,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             NewsAppTheme( dynamicColor = false) {
                 Box(modifier = Modifier.background(MaterialTheme.colorScheme.background)) {
-                    OnBoardingScreen()
+                    val viewModel: OnBoardingViewModel = hiltViewModel()
+                    OnBoardingScreen(onEvent = viewModel::onEvent)
                 }
             }
         }
