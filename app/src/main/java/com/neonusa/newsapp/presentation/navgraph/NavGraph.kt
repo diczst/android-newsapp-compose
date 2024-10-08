@@ -6,6 +6,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
+import androidx.paging.compose.collectAsLazyPagingItems
+import com.neonusa.newsapp.presentation.home.HomeScreen
+import com.neonusa.newsapp.presentation.home.HomeViewModel
 import com.neonusa.newsapp.presentation.onboarding.OnBoardingScreen
 import com.neonusa.newsapp.presentation.onboarding.OnBoardingViewModel
 
@@ -28,19 +31,24 @@ fun NavGraph(
 
         navigation(
             route = Route.NewsNavigation.route,
-            startDestination = Route.HomeScreen.route
+            startDestination = Route.NewsNavigatorScreen.route
         ) {
-            composable(route = Route.HomeScreen.route) {
-
-            }
-            composable(route = Route.SearchScreen.route) {
-
-            }
-            composable(route = Route.BookmarkScreen.route) {
-
-            }
-            composable(route = Route.DetailsScreen.route) {
-
+//            composable(route = Route.HomeScreen.route) {
+//
+//            }
+//            composable(route = Route.SearchScreen.route) {
+//
+//            }
+//            composable(route = Route.BookmarkScreen.route) {
+//
+//            }
+//            composable(route = Route.DetailsScreen.route) {
+//
+//            }
+            composable(route = Route.NewsNavigatorScreen.route){
+                val viewModel: HomeViewModel = hiltViewModel()
+                val articles = viewModel.news.collectAsLazyPagingItems()
+                HomeScreen(articles = articles, navigate = {})
             }
         }
     }

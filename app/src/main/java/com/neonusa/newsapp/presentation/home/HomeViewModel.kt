@@ -1,11 +1,10 @@
-package com.neonusa.newsapp.presentation
+package com.neonusa.newsapp.presentation.home
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import com.neonusa.newsapp.domain.usecases.news.NewsUseCases
-import com.neonusa.newsapp.presentation.home.HomeState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
