@@ -69,16 +69,30 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    // Splash screen
+    // Splash screen :
     implementation (libs.androidx.core.splashscreen)
 
-    // Datastore | SharedPref versi jetpack
+    // Datastore : SharedPref versi jetpack
     implementation (libs.androidx.datastore.preferences)
 
-    //Dagger Hilt (DI)
+    //Dagger Hilt : Dependency Injection
     implementation ("com.google.dagger:hilt-android:2.48")
     kapt ("com.google.dagger:hilt-compiler:2.48")
 
     // Hilt navcompose
     implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
+
+    //Accompanist :
+    implementation ("com.google.accompanist:accompanist-systemuicontroller:0.31.4-beta")
+
+    //Retrofit : API Handling
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    //Paging 3 : Paging
+    implementation ("androidx.paging:paging-runtime:3.1.1")
+    implementation ("androidx.paging:paging-compose:3.2.0-rc01")
+
+    // Coil (Async image)
+    implementation("io.coil-kt:coil-compose:2.4.0")
 }
