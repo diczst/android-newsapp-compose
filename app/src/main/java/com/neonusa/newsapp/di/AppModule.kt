@@ -1,7 +1,11 @@
 package com.neonusa.newsapp.di
 
 import android.app.Application
+import androidx.room.Room
 import com.neonusa.newsapp.data.NewsRepositoryImpl
+import com.neonusa.newsapp.data.local.NewsDao
+import com.neonusa.newsapp.data.local.NewsDatabase
+import com.neonusa.newsapp.data.local.NewsTypeConverter
 import com.neonusa.newsapp.data.manager.LocalUserManagerImpl
 import com.neonusa.newsapp.data.remote.NewsApi
 import com.neonusa.newsapp.domain.LocalUserManager
@@ -68,5 +72,25 @@ object AppModule {
             searchNews = SearchNews(newsRepository)
         )
     }
+
+    @Provides
+    @Singleton
+    fun provideNewsDatabase(
+        application: Application
+    ): NewsDatabase {
+        return Room.databaseBuilder(
+            context = application,
+            klass = NewsDatabase::class.java,
+            name = "news_db"
+        ).addTypeConverter(NewsTypeConverter())
+            .fallbackToDestructiveMigration()
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideNewsDao(
+        newsDatabase: NewsDatabase
+    ): NewsDao = newsDatabase.newsDao
 
 }

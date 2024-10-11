@@ -1,8 +1,10 @@
 package com.neonusa.newsapp.domain.model
 
 import android.os.Parcelable
+import androidx.room.Entity
 import kotlinx.parcelize.Parcelize
 
+@Entity
 @Parcelize
 data class Article(
     val author: String,

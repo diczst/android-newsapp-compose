@@ -96,4 +96,8 @@ dependencies {
 
     // Coil (Async image)
     implementation("io.coil-kt:coil-compose:2.4.0")
+
+    implementation ("androidx.room:room-runtime:2.5.2")
+    kapt ("androidx.room:room-compiler:2.5.2")
+    implementation ("androidx.room:room-ktx:2.5.2")
 }
