@@ -17,15 +17,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.lifecycleScope
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.neonusa.newsapp.data.local.NewsDao
-import com.neonusa.newsapp.domain.model.Article
-import com.neonusa.newsapp.domain.model.Source
-import com.neonusa.newsapp.domain.usecases.app_entry.AppEntryUseCases
 import com.neonusa.newsapp.presentation.navgraph.NavGraph
-import com.neonusa.newsapp.presentation.onboarding.OnBoardingScreen
-import com.neonusa.newsapp.presentation.onboarding.OnBoardingViewModel
 import com.neonusa.newsapp.ui.theme.NewsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -80,9 +74,8 @@ class MainActivity : ComponentActivity() {
                     )
                 }
                 Box(modifier = Modifier.background(MaterialTheme.colorScheme.background)) {
-//                    val viewModel: OnBoardingViewModel = hiltViewModel()
-//                    OnBoardingScreen(onEvent = viewModel::onEvent)
                     NavGraph(startDestination = viewModel.startDestination.value)
+//                    EmptyScreen()
                 }
             }
         }
