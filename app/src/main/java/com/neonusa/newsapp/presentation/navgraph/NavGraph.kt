@@ -7,6 +7,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.neonusa.newsapp.presentation.bookmark.BookmarkScreen
+import com.neonusa.newsapp.presentation.bookmark.BookmarkViewModel
 import com.neonusa.newsapp.presentation.home.HomeScreen
 import com.neonusa.newsapp.presentation.home.HomeViewModel
 import com.neonusa.newsapp.presentation.news_navigator.NewsNavigator
@@ -57,7 +59,9 @@ fun NavGraph(
 //            }
 
             composable(route = Route.NewsNavigatorScreen.route){
-                NewsNavigator()
+//                NewsNavigator()
+                val viewModel: BookmarkViewModel = hiltViewModel()
+                BookmarkScreen(state = viewModel.state.value, navigate = {})
             }
 
 

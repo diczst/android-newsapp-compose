@@ -9,5 +9,4 @@ import com.neonusa.newsapp.domain.model.Article
 @TypeConverters(NewsTypeConverter::class)
 abstract class NewsDatabase : RoomDatabase() {
     abstract val newsDao: NewsDao
-
 }
