@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
+    id("com.google.devtools.ksp")
     id ("com.google.dagger.hilt.android")
     id ("kotlin-parcelize")
 }
@@ -98,6 +99,6 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.4.0")
 
     implementation ("androidx.room:room-runtime:2.5.2")
-    kapt ("androidx.room:room-compiler:2.5.2")
+    ksp ("androidx.room:room-compiler:2.5.2") // don't use kapt (kapt will error)
     implementation ("androidx.room:room-ktx:2.5.2")
 }
