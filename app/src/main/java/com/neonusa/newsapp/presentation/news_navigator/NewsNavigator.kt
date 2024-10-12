@@ -1,5 +1,6 @@
 package com.neonusa.newsapp.presentation.news_navigator
 
+import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -12,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
@@ -21,7 +23,11 @@ import androidx.navigation.compose.rememberNavController
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.neonusa.newsapp.R
 import com.neonusa.newsapp.domain.model.Article
+import com.neonusa.newsapp.presentation.bookmark.BookmarkScreen
+import com.neonusa.newsapp.presentation.bookmark.BookmarkViewModel
+import com.neonusa.newsapp.presentation.details.DetailsEvent
 import com.neonusa.newsapp.presentation.details.DetailsScreen
+import com.neonusa.newsapp.presentation.details.DetailsViewModel
 import com.neonusa.newsapp.presentation.home.HomeScreen
 import com.neonusa.newsapp.presentation.home.HomeViewModel
 import com.neonusa.newsapp.presentation.navgraph.Route
@@ -129,18 +135,28 @@ fun NewsNavigator() {
                 )
             }
             composable(route = Route.DetailsScreen.route) {
+                //todo : problem here
+                val viewModel: DetailsViewModel = hiltViewModel()
+                if(viewModel.sideEffect != null){
+                    Toast.makeText(LocalContext.current, viewModel.sideEffect, Toast.LENGTH_SHORT).show()
+                    viewModel.onEvent(DetailsEvent.RemoveSideEffect)
+                }
                 navController.previousBackStackEntry?.savedStateHandle?.get<Article?>("article")
                     ?.let { article ->
                         DetailsScreen(
                             article = article,
-                            event = {},
+                            event = viewModel::onEvent,
                             navigateUp = { navController.navigateUp() }
                         )
                     }
 
             }
             composable(route = Route.BookmarkScreen.route) {
-
+                val viewModel: BookmarkViewModel = hiltViewModel()
+                val state = viewModel.state.value
+                BookmarkScreen(state = state, navigateToDetails = {article ->
+                    navigateToDetails(navController = navController, article = article)
+                })
             }
         }
     }

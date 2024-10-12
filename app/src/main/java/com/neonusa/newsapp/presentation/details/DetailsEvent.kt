@@ -1,6 +1,8 @@
 package com.neonusa.newsapp.presentation.details
 
-sealed class DetailsEvent {
-    object SaveArticle : DetailsEvent()
+import com.neonusa.newsapp.domain.model.Article
 
+sealed class DetailsEvent {
+    data class InsertDeleteArticle(val article: Article): DetailsEvent()
+    object RemoveSideEffect: DetailsEvent()
 }

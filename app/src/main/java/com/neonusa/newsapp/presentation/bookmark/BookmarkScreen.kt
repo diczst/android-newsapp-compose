@@ -12,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import com.neonusa.newsapp.domain.model.Article
 import com.neonusa.newsapp.presentation.Dimens.MediumPadding1
 import com.neonusa.newsapp.presentation.common.ArticlesList
 import com.neonusa.newsapp.presentation.navgraph.Route
@@ -20,7 +21,7 @@ import com.neonusa.newsapp.presentation.navgraph.Route
 @Composable
 fun BookmarkScreen(
     state: BookmarkState,
-    navigate: (String) -> Unit
+    navigateToDetails: (Article) -> Unit
 ){
     Column (
         modifier = Modifier
@@ -30,6 +31,6 @@ fun BookmarkScreen(
     ){
         Text(text = "Bookmark", style = MaterialTheme.typography.displayMedium.copy(fontWeight = FontWeight.Bold))
         Spacer(modifier = Modifier.height(MediumPadding1))
-        ArticlesList(articles = state.articles, onClick = {navigate(Route.DetailsScreen.route)})
+        ArticlesList(articles = state.articles, onClick = {navigateToDetails(it)})
     }
 }

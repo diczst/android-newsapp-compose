@@ -59,9 +59,9 @@ fun NavGraph(
 //            }
 
             composable(route = Route.NewsNavigatorScreen.route){
-//                NewsNavigator()
-                val viewModel: BookmarkViewModel = hiltViewModel()
-                BookmarkScreen(state = viewModel.state.value, navigate = {})
+                NewsNavigator()
+//                val viewModel: BookmarkViewModel = hiltViewModel()
+//                BookmarkScreen(state = viewModel.state.value, navigateToDetails = {})
             }
 
 

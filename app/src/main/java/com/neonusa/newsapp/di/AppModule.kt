@@ -18,6 +18,7 @@ import com.neonusa.newsapp.domain.usecases.news.GetNews
 import com.neonusa.newsapp.domain.usecases.news.InsertArticle
 import com.neonusa.newsapp.domain.usecases.news.NewsUseCases
 import com.neonusa.newsapp.domain.usecases.news.SearchNews
+import com.neonusa.newsapp.domain.usecases.news.SelectArticle
 import com.neonusa.newsapp.domain.usecases.news.SelectArticles
 import com.neonusa.newsapp.util.Constants.BASE_URL
 import dagger.Module
@@ -76,7 +77,8 @@ object AppModule {
             searchNews = SearchNews(newsRepository),
             insertArticle = InsertArticle(newsDao),
             deleteArticle = DeleteArticle(newsDao),
-            selectArticles = SelectArticles(newsDao)
+            selectArticles = SelectArticles(newsDao),
+            selectArticle = SelectArticle(newsDao)
         )
     }
 
